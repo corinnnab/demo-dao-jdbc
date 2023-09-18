@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -17,11 +18,16 @@ public class Program2 {
 		Department dep = depDao.findById(1);
 		System.out.println(dep);
 
-		System.out.println("\n---- TEST 3: seller findAll----");
+		System.out.println("\n---- TEST 2: department findAll----");
 		List<Department> departments = depDao.findAll();
 		for (Department obj : departments) {
 			System.out.println(obj);
 		}
+		
+		System.out.println("\n---- TEST 3: department insert----");
+		Department newDep= new Department(null, "Fashion");
+		depDao.insert(newDep);
+		System.out.println("New id = " + newDep.getId());
 	}
 
 }
