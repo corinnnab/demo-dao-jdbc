@@ -6,7 +6,6 @@ import java.util.List;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class Program2 {
 
@@ -28,6 +27,12 @@ public class Program2 {
 		Department newDep= new Department(null, "Fashion");
 		depDao.insert(newDep);
 		System.out.println("New id = " + newDep.getId());
+		
+		System.out.println("\n---- TEST 4: department update----");
+		dep = depDao.findById(1);
+		dep.setName("Used items");
+		depDao.update(dep);
+		System.out.println("Update completed");
 	}
 
 }
