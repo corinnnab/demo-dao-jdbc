@@ -1,7 +1,7 @@
 package application;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
@@ -11,6 +11,7 @@ public class Program2 {
 
 	public static void main(String[] args) {
 		DepartmentDao depDao = DaoFactory.createDepartmentDao();
+		Scanner sc = new Scanner(System.in);
 		
 		
 		System.out.println("---- TEST 1: department findById----");
@@ -33,6 +34,12 @@ public class Program2 {
 		dep.setName("Used items");
 		depDao.update(dep);
 		System.out.println("Update completed");
+		
+		System.out.println("\n---- TEST 5: department delete----");
+		System.out.println("Enter id for delete test: ");
+		Integer id = sc.nextInt();
+		depDao.deleteById(id);
+		System.out.println("Delete completed.");
 	}
 
 }
